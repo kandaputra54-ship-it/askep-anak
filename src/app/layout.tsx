@@ -13,7 +13,11 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const baseUrl = "https://askep-anak.com";
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL
+  ? process.env.NEXT_PUBLIC_SITE_URL
+  : process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : "https://askep-anak.com";
 
 export const metadata: Metadata = {
   title: "Asuhan Keperawatan Anak",
@@ -26,9 +30,7 @@ export const metadata: Metadata = {
       { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
       { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
     ],
-    apple: [
-      { url: "/apple-touch-icon.png" },
-    ],
+    apple: [{ url: "/apple-touch-icon.png" }],
     other: [
       {
         rel: "manifest",
@@ -38,8 +40,9 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Asuhan Keperawatan Anak",
-    description: "Layanan informasi dan pengkajian keperawatan anak oleh tenaga perawat profesional.",
-    url: baseUrl,
+    description:
+      "Layanan informasi dan pengkajian keperawatan anak oleh tenaga perawat profesional.",
+    url: "/",
     siteName: "Asuhan Keperawatan Anak",
     locale: "id_ID",
     type: "website",
@@ -55,7 +58,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Asuhan Keperawatan Anak",
-    description: "Layanan informasi dan pengkajian keperawatan anak oleh tenaga perawat profesional.",
+    description:
+      "Layanan informasi dan pengkajian keperawatan anak oleh tenaga perawat profesional.",
     images: ["/mengasuh.jpg"],
   },
 };
