@@ -1,4 +1,17 @@
+"use client";
+
+import Link from "next/link";
+import { ArrowDown, ClipboardCheck } from "lucide-react";
+
 export default function Hero() {
+  const handleScrollToLayanan = (e) => {
+    e.preventDefault();
+    const el = document.getElementById("layanan");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-gray-900 pt-20">
       {/* Background Image */}
@@ -18,24 +31,26 @@ export default function Hero() {
           </h1>
 
           <p className="text-gray-300 text-base md:text-lg leading-relaxed max-w-lg font-light">
-            Layanan keperawatan profesional kini hadir di wilayah Anda. Kami siap membantu kesehatan keluarga Anda khususnya si kecil.
+            Dokumentasi keperawatan anak sistematis mulai dari pengkajian, analisa data, diagnosa, intervensi, implementasi, hingga evaluasi SOAP siap cetak PDF.
           </p>
 
           <div className="flex flex-wrap items-center gap-4 pt-4">
             <a
-              href="/pengkajian"
-              className="bg-[#2a9d8f] hover:bg-[#218276] text-white font-semibold text-sm px-8 py-4 rounded-lg transition-all duration-300 shadow-lg shadow-teal-900/20 flex items-center gap-2 group"
+              href="#layanan"
+              onClick={handleScrollToLayanan}
+              className="bg-[#2a9d8f] hover:bg-[#218276] text-white font-semibold text-sm px-8 py-4 rounded-lg transition-all duration-300 shadow-lg shadow-teal-900/20 flex items-center gap-2 group cursor-pointer"
             >
               Mulai Pengkajian
-              <span className="group-hover:translate-x-1 transition-transform"></span>
+              <ArrowDown className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
             </a>
-            <a
-              href="#layanan"
+
+            <Link
+              href="/pengkajian"
               className="bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white border border-white/20 font-semibold text-sm px-8 py-4 rounded-lg transition-all duration-300 flex items-center gap-2 group"
             >
-              Lihat Layanan
-              <span className="group-hover:translate-x-1 transition-transform"></span>
-            </a>
+              <ClipboardCheck className="w-4 h-4" />
+              Langsung ke Form A
+            </Link>
           </div>
         </div>
       </div>
