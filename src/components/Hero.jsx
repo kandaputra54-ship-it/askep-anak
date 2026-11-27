@@ -44,13 +44,7 @@ export default function Hero() {
               <ArrowDown className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
             </a>
 
-            <Link
-              href="/pengkajian"
-              className="bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white border border-white/20 font-semibold text-sm px-8 py-4 rounded-lg transition-all duration-300 flex items-center gap-2 group"
-            >
-              <ClipboardCheck className="w-4 h-4" />
-              Langsung ke Form A
-            </Link>
+          
           </div>
         </div>
       </div>
